@@ -14,6 +14,9 @@
 		B028C2282B8720760032413A /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B028C2272B8720760032413A /* ViewControllerExtension.swift */; };
 		B028C22B2B8720FE0032413A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B028C22A2B8720FE0032413A /* SnapKit */; };
 		B028C22F2B87684A0032413A /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B028C22E2B87684A0032413A /* LogManager.swift */; };
+		B074E5742B98D346009D96D8 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B074E5732B98D346009D96D8 /* CharacterDetailViewController.swift */; };
+		B09AA4A12B90498C006D515B /* CharacterTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09AA4A02B90498C006D515B /* CharacterTableVIewCell.swift */; };
+		B09AA4A32B9049B1006D515B /* CharactersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09AA4A22B9049B1006D515B /* CharactersTableView.swift */; };
 		B0A2D18A2B8F67CE00CB829B /* TableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A2D1892B8F67CE00CB829B /* TableViewViewController.swift */; };
 		B0A2D18C2B8F724A00CB829B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A2D18B2B8F724A00CB829B /* TableViewCell.swift */; };
 		B0A2D18E2B8F7D4500CB829B /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A2D18D2B8F7D4500CB829B /* Student.swift */; };
@@ -28,6 +31,9 @@
 		B028C2212B87200C0032413A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B028C2272B8720760032413A /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		B028C22E2B87684A0032413A /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
+		B074E5732B98D346009D96D8 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
+		B09AA4A02B90498C006D515B /* CharacterTableVIewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableVIewCell.swift; sourceTree = "<group>"; };
+		B09AA4A22B9049B1006D515B /* CharactersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableView.swift; sourceTree = "<group>"; };
 		B0A2D1892B8F67CE00CB829B /* TableViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewViewController.swift; sourceTree = "<group>"; };
 		B0A2D18B2B8F724A00CB829B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		B0A2D18D2B8F7D4500CB829B /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
@@ -66,6 +72,9 @@
 			children = (
 				B028C2132B87200B0032413A /* AppDelegate.swift */,
 				B0A2D1892B8F67CE00CB829B /* TableViewViewController.swift */,
+				B09AA4A02B90498C006D515B /* CharacterTableVIewCell.swift */,
+				B09AA4A22B9049B1006D515B /* CharactersTableView.swift */,
+				B074E5732B98D346009D96D8 /* CharacterDetailViewController.swift */,
 				B0A2D18D2B8F7D4500CB829B /* Student.swift */,
 				B0A2D18B2B8F724A00CB829B /* TableViewCell.swift */,
 				B028C2172B87200B0032413A /* ViewController.swift */,
@@ -155,12 +164,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0A2D18E2B8F7D4500CB829B /* Student.swift in Sources */,
+				B09AA4A32B9049B1006D515B /* CharactersTableView.swift in Sources */,
 				B028C22F2B87684A0032413A /* LogManager.swift in Sources */,
 				B028C2182B87200B0032413A /* ViewController.swift in Sources */,
 				B028C2142B87200B0032413A /* AppDelegate.swift in Sources */,
+				B074E5742B98D346009D96D8 /* CharacterDetailViewController.swift in Sources */,
 				B0A2D18C2B8F724A00CB829B /* TableViewCell.swift in Sources */,
 				B028C2282B8720760032413A /* ViewControllerExtension.swift in Sources */,
 				B0A2D18A2B8F67CE00CB829B /* TableViewViewController.swift in Sources */,
+				B09AA4A12B90498C006D515B /* CharacterTableVIewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
