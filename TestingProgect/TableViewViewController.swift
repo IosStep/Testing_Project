@@ -1,8 +1,6 @@
 import UIKit
 
-class TableViewViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-//    let names = ["Akmaral", "Nurdaulet", "Amir", "Alisher", "Nurali", "Bekarys", "Nadir", "Nursultan", "Bakhtiyar", "Chingiz", "Amir", "Marlen"]
+class TableViewViewController: UIViewController {
     
     let students = [
     Student(name: "Akmaral", dateOfBirth: "1995-07-12", icon: "person.crop.circle.fill"),
@@ -18,6 +16,7 @@ class TableViewViewController: UIViewController, UITableViewDelegate, UITableVie
     Student(name: "Amir", dateOfBirth: "1986-06-17", icon: "person.circle"),
     Student(name: "Marlen", dateOfBirth: "1984-01-25", icon: "swirl.circle.righthalf.filled")
 ]
+    
 
     lazy var namesTableView: UITableView = {
         let table = UITableView()
@@ -31,6 +30,7 @@ class TableViewViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
+        namesTableView.reloadData()
     }
     
     func setUp() {
@@ -38,6 +38,15 @@ class TableViewViewController: UIViewController, UITableViewDelegate, UITableVie
         namesTableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+   
+}
+
+
+extension TableViewViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    var name: String {
+        return "some name"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,4 +68,3 @@ class TableViewViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
 }
-

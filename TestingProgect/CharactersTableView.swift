@@ -2,7 +2,21 @@ import UIKit
 import SnapKit
 
 class CharactersTableView: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     let characters: [HarryPotterCharacter] = Data.characters
+    
+    lazy var filteredCharacters = characters {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+
+    lazy var segmentControl: UISegmentedControl = {
+       let view = UISegmentedControl(items: ["All", "Gryffindor"])
+        view.selectedSegmentIndex = 0
+        view.addTarget(self, action: #selector(segmentChanged), for: .valueChanged)
+        return view
+    }()
 
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -15,20 +29,29 @@ class CharactersTableView: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         view.addSubview(tableView)
+        view.addSubview(segmentControl)
+        
+        segmentControl.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(40)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+        }
         tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.leading.trailing.bottom.equalToSuperview()
+            make.top.equalTo(segmentControl.snp.bottom).offset(12)
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return characters.count
+        return filteredCharacters.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CharacterTableViewCell.reuseIdentifier, for: indexPath) as! CharacterTableViewCell
         
-        let character = characters[indexPath.row]
+        let character = filteredCharacters[indexPath.row]
         
         cell.configure(character)
         
@@ -37,11 +60,24 @@ class CharactersTableView: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let object = characters[indexPath.row]
+        let object = filteredCharacters[indexPath.row]
         
         let vc = CharacterDetailViewController()
         vc.configure(object)
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func segmentChanged(sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            filteredCharacters = characters
+        }else {
+            filteredCharacters = characters.filter({ $0.house == "Gryffindor" })
+            
+//            filteredCharacters = characters.filter({ character in
+//                character.house == "Gryffindor"
+//            })
+        }
+        
     }
 }
 
@@ -50,19 +86,17 @@ struct HarryPotterCharacter {
     let surname: String
     let house: String
     let wand: String
-    // You can add more parameters as needed
-
+    
     init(name: String, surname: String, house: String, wand: String) {
         self.name = name
         self.surname = surname
         self.house = house
         self.wand = wand
-        // Initialize more parameters here if necessary
     }
 }
 
-
 class Data {
+    
     static let characters = [
         HarryPotterCharacter(name: "Harry", surname: "Potter", house: "Gryffindor", wand: "Holly, 11', phoenix feather core"),
         HarryPotterCharacter(name: "Hermione", surname: "Granger", house: "Gryffindor", wand: "Vine, 10 ¾', dragon heartstring core"),
